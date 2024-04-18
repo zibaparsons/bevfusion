@@ -90,7 +90,13 @@ if __name__ == "__main__":
                     "src/iou3d.cpp",
                     "src/iou3d_kernel.cu",
                 ],
-            ),
+            ), # added by z
+            make_cuda_ext(
+                name="feature_decorator_ext",
+                module="mmdet3d.ops.feature_decorator",
+                sources=["src/feature_decorator.cpp"],
+                sources_cuda=["src/feature_decorator_cuda.cu"],
+            ), 
             make_cuda_ext(
                 name="voxel_layer",
                 module="mmdet3d.ops.voxel",
